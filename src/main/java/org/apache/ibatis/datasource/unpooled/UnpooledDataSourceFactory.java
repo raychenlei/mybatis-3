@@ -40,7 +40,9 @@ public class UnpooledDataSourceFactory implements DataSourceFactory {
 
   @Override
   public void setProperties(Properties properties) {
+    //入参是从配置文件中解析出来的数据源属性
     Properties driverProperties = new Properties();
+    //从dataSource中获取数据源的配置属性，通常有driver，url，username，password
     MetaObject metaDataSource = SystemMetaObject.forObject(dataSource);
     for (Object key : properties.keySet()) {
       String propertyName = (String) key;
